@@ -1,1 +1,10 @@
+node_modules
 
+private
+
+public/css
+
+public/music/*
+
+public/material-design-icons
+public/material-design-icons/*

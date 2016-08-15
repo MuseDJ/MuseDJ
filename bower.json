@@ -1,0 +1,24 @@
+{
+  "name": "muse-dj",
+  "description": "A simple web based music player",
+  "main": "src/app.js",
+  "authors": [
+    "itotallyrock"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "musedj"
+  ],
+  "homepage": "https://github.com/MuseDJ/MuseDJ",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jsmediatags": "^3.2.2"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "jsmediatags",
+  "description": "Media Tags Reader (ID3, MP4)",
+  "main": "dist/jsmediatags.js",
+  "authors": [
+    "António Afonso"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "ID3",
+    "tags",
+    "mp3",
+    "audio",
+    "mp4"
+  ],
+  "homepage": "https://github.com/aadsm/jsmediatags",
+  "ignore": [
+    "*",
+    "!dist/jsmediatags.js"
+  ],
+  "version": "3.2.2",
+  "_release": "3.2.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.2.2",
+    "commit": "1350e6b06b127c5181aad9a6fb52d00305700eca"
+  },
+  "_source": "https://github.com/aadsm/jsmediatags.git",
+  "_target": "^3.2.2",
+  "_originalSource": "jsmediatags"
+}

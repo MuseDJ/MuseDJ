@@ -1,0 +1,17 @@
+{
+    "name": "MuseDJ Audio Player",
+	"shortname": "MusePlayer",
+	"description": "An online HTML and Javascript based music player.",
+	"background_color": "#770535",
+	"dir": "rtl",
+	"lang": "en",
+    "icons": [{
+        "src": "res/img/favicon.png",
+        "sizes": "48x48",
+        "type": "image/png",
+        "density": 1.0
+    }],
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+}

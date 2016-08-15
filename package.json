@@ -1,0 +1,32 @@
+{
+  "name": "muse-dj",
+  "version": "0.0.1",
+  "description": "A simple web based music player",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuseDJ/MuseDJ.git"
+  },
+  "keywords": [
+    "musedj"
+  ],
+  "author": "itotallyrock",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MuseDJ/MuseDJ/issues"
+  },
+  "homepage": "https://github.com/MuseDJ/MuseDJ#readme",
+  "dependencies": {
+    "babel-middleware": "^0.3.4",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "get-artist-title": "^0.3.0",
+    "jsmediatags": "^3.2.1",
+    "morgan": "^1.7.0",
+    "promise": "^7.1.1"
+  }
+}

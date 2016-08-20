@@ -1,7 +1,7 @@
-"use strict";
-
+'use strict';
+/* eslint-env node, worker */
 console.log('WORKER: executing.');
-var version = 'v4::';
+var version = 'v5::';
 var offlineFundamentals = [
     '',
 	'/',
@@ -13,7 +13,7 @@ var offlineFundamentals = [
 	'/jsmediatags/dist/jsmediatags.js',
 	'/js/utils.js'
 ];
-self.addEventListener("install", function(event) {
+self.addEventListener('install', function(event) {
     console.log('WORKER: install event in progress.');
     event.waitUntil(
         caches.open(version + 'fundamentals').then(function(cache) {
@@ -24,7 +24,7 @@ self.addEventListener("install", function(event) {
     );
 });
 
-self.addEventListener("fetch", function(event) {
+self.addEventListener('fetch', function(event) {
     console.log('WORKER: fetch event in progress.');
     if (event.request.method !== 'GET') {
         console.log('WORKER: fetch event ignored.\t\t', event.request.method, event.request.url);
@@ -64,7 +64,7 @@ self.addEventListener("fetch", function(event) {
     );
 });
 
-self.addEventListener("activate", function(event) {
+self.addEventListener('activate', function(event) {
     console.log('WORKER: activate event in progress.');
     event.waitUntil(
         caches.keys().then(function(keys) {

@@ -21,20 +21,39 @@ if ('serviceWorker' in navigator) {
             return;
         }
 
-		if (Notification.permission === 'default') {
-			Notification.requestPermission().then((a) => {
-	            if (Notification.permission === 'granted') {
-					new Notification("Thank You", {body: "Thanks for enabling notifications, now you can keep up with all your music live."});
-	            } else {
-					return;
-				}
-	        });
-		} else {
-			// new Notification("Title 2", {body: "Body 2");
-		}
+        if (Notification.permission === 'default') {
+            Notification.requestPermission().then(() => {
+                if (Notification.permission === 'granted') {
+                    new Notification('Thank You', {
+                        body: 'Thanks for enabling notifications, now you can keep up with all your music live.'
+                    });
+                } else {
+                    return;
+                }
+            });
+        } else {
+            // new Notification("Title 2", {body: "Body 2");
+        }
     }, function() {
         console.log('CLIENT: service worker registration failure.');
     });
 } else {
     console.log('CLIENT: service worker is not supported.');
 }
+
+require.config({
+	baseUrl: '/',
+	paths: {
+		'jQuery': 'jquery/dist/jquery.min.js',
+		'MuseDJ/Utils': 'js/utils.js'
+		//'MuseDJ/Main': 'js/main.js'
+	}
+});
+
+window.onscroll = function() {
+    var songs = document.getElementById('.songs');
+    if (window.pageYOffset + window.innerHeight >= songs.offsetHeight) {
+		// TODO:Load More Songs
+        songs.innerHTML += '<div class="newData"></div>';
+    }
+};

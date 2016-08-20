@@ -1,3 +1,6 @@
+const path = require('path');
+const Shuffle = require(path.join(__dirname, 'shuffle'));
+
 let Playlist = class Playlist {
     constructor(name) {
         this.name = name;
@@ -27,10 +30,13 @@ let Playlist = class Playlist {
     toJSON() {
         return this;
     }
+
+
 };
 
-Playlist.import = function() {
-
+Playlist.import = function(seed) {
+	let seeder = Shuffle.seeder();
+	seeder.import(seed);
 };
 
 module.exports = Playlist;

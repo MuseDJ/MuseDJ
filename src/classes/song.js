@@ -8,7 +8,7 @@ let Song = class Song {
 	constructor(dest) {
 		this.fullname = path.parse(dest).name;
 		return new Promise((done, reject) => {
-			let tags = jsmediatags.read(dest, {
+			jsmediatags.read(dest, {
 				onSuccess: function (tags) {
 					// this.tags = tags;
 					this.genres = [];
@@ -23,7 +23,7 @@ let Song = class Song {
 				onError: function (err) {
 					reject(err);
 				}
-			})
+			});
 		});
 	}
 	toString() {

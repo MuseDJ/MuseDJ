@@ -3,7 +3,7 @@ const router = require('express').Router();
 const fs = require('fs');
 const path = require('path');
 const Song = require(path.join(__dirname, '../../classes/song'));
-const Playlist = require(path.join(__dirname, '../../classes/playlist'))
+const Playlist = require(path.join(__dirname, '../../classes/playlist'));
 
 router.use(function (req, res, next) {
 	res.setHeader('Cache-Control', 'no-cache;must-revalidate;max-age=0');
@@ -11,12 +11,12 @@ router.use(function (req, res, next) {
 });
 
 router.get('/', function(req, res) {
-	fs.readdir(path.join(__dirname, "../../../public/music"), function(err, files) {
+	fs.readdir(path.join(__dirname, '../../../public/music'), function(err, files) {
 		if (err) {
 			res.send(err);
 		} else {
 			let playlist = new Playlist('all');
-			files.forEach(function(o, i) {
+			files.forEach(function(o) {
 				let file = path.parse(o);
 				if (file.ext === '.mp3') {
 					playlist.addSong(file.base);
@@ -30,11 +30,11 @@ router.get('/', function(req, res) {
 router.get(['/:songurl/details'], function (req, res) {
 	new Song(path.join(__dirname, '../../../public/music/' + decodeURI(req.params.songurl))).then((song) => {
 		res.json({
-			"genres": song.genres,
-			"fullname": song.fullname,
-			"artist": song.artist,
-			"title": song.title,
-			"url": song.url
+			'genres': song.genres,
+			'fullname': song.fullname,
+			'artist': song.artist,
+			'title': song.title,
+			'url': song.url
 		});
 	}).catch((err) => {
 		res.statusCode = 500;

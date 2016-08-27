@@ -1,16 +1,15 @@
 node_modules
+npm-debug.log
 
 private
 
 public/css
 
+public/music
 public/music/*
 
 public/material-design-icons
 public/material-design-icons/*
-
-public/jsmediatags
-public/jsmediatags/*
 
 public/jquery
 public/jquery/*

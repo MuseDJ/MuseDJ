@@ -4,7 +4,7 @@ const Playlist = require(path.join(__dirname.toString().replace('\\test\\', '\\'
 const Song = require(path.join(__dirname.toString().replace('\\test\\', '\\'), 'song'));
 // const Shuffle = require(path.join(__dirname.toString().replace('\\test\\', '\\'), 'shuffle'));
 
-let defaultSong = '%5BHappy%20Hardcore%5D%20-%20nanobii%20-%20Rainbow%20Road%20%5BMonstercat%20Release%5D%20%5BMonstercat%5D.mp3';
+let defaultSong = process.env.TEST_SONG;
 
 describe('Playlist', function () {
 	it('Should have a constructor', function () {

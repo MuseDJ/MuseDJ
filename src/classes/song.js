@@ -41,7 +41,7 @@ let Song = class Song {
 			artists: this.artists,
 			title: this.title,
 			year: this.year,
-			thumbnail: '/picture' + this.thumbnail,
+			thumbnail: this.thumbnail,
 			duration: this.duration,
 			url: this.url
 		};

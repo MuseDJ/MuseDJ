@@ -10,14 +10,17 @@ describe('Shuffle', function () {
 		});
 		it('Should have a get method', function () {
 			let seed = Shuffle.seeder();
+			expect(seed).to.have.property('get');
 			expect(seed.get).to.be.a('function');
 		});
 		it('Should have a set method', function () {
 			let seed = Shuffle.seeder();
+			expect(seed).to.have.property('set');
 			expect(seed.set).to.be.a('function');
 		});
 		it('Should have an import method', function () {
 			let seed = Shuffle.seeder();
+			expect(seed).to.have.property('import');
 			expect(seed.import).to.be.a('function');
 		});
 		it('Should be able to import an encoded seed and be identical', function () {
@@ -29,10 +32,12 @@ describe('Shuffle', function () {
 		});
 		it('Should have an encode method', function () {
 			let seed = Shuffle.seeder();
+			expect(seed).to.have.property('encode');
 			expect(seed.encode).to.be.a('function');
 		});
 		it('Should have a clear method', function () {
 			let seed = Shuffle.seeder();
+			expect(seed).to.have.property('clear');
 			expect(seed.clear).to.be.a('function');
 		});
 		it('Should return an array of a set length after get is called', function () {

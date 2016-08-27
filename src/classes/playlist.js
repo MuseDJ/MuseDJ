@@ -1,22 +1,50 @@
 const path = require('path');
+const Song = require(path.join(__dirname, 'song'));
 const Shuffle = require(path.join(__dirname, 'shuffle'));
 
 let Playlist = class Playlist {
-    constructor(name) {
-        this.name = name;
+    constructor(options) {
+		if (options == undefined) options = {};
+        if (!options.hasOwnProperty('name')) options.name = 'Unnamed Playlist';
+        if (!options.hasOwnProperty('songs')) options.songs = [];
+
+        this.name = options.name;
         this.created = Date.now();
-        this.songs = [];
+        this.seeder = Shuffle.seeder();
+        this.songs = options.songs;
+
+        if (options.seed == undefined) options.seed = this.seeder.set(this.songs.length + Math.floor(Math.random() * this.songs.length));
+        else this.seeder.import(options.seed);
+        Shuffle.randomShuffle(this.songs, this.seeder.get());
+    }
+    setSeed(seed) {
+        if (seed !== undefined) {
+            this.seeder.import(seed);
+        } else {
+            this.seeder.set(this.songs.length + Math.floor(Math.random() * this.songs.length));
+        }
+        this.shuffle();
+        return this;
+    }
+    shuffle() {
+        this.songs = Shuffle.randomShuffle(this.songs, this.seeder.get());
+        return this.songs;
     }
     addSong(song) {
+		// REVIEW: Add index to allow starting position
+        if (!(song instanceof Song)) return;
         this.songs.push(song);
+        return this.songs;
     }
-	delSong(s) {
-		this.songs.forEach(function (song, i) {
-			if (s === song || s.id == song.id) {
-				this.songs.splice(i, 1);
-			}
-		});
-	}
+    delSong(s) {
+        if (typeof s === 'number') return this.songs.splice(s, 1);
+        if (!(s instanceof Song)) return undefined;
+        this.songs.forEach(function(song, i) {
+            if (s === song || s.toString() == song.fullname) {
+                return this.songs.splice(i, 1);
+            }
+        });
+    }
     setSongPos(original, index) {
         if (index >= this.length) {
             var k = index - this.length;
@@ -27,16 +55,18 @@ let Playlist = class Playlist {
         this.songs.splice(index, 0, this.songs.splice(original, 1)[0]);
         return this.songs;
     }
-    toJSON() {
-        return this;
+    getEncodedSongList() {
+        return this.songs.map(function(song) {
+            return encodeURI(song.toString());
+        });
     }
-
-
-};
-
-Playlist.import = function(seed) {
-	let seeder = Shuffle.seeder();
-	seeder.import(seed);
+    toJSON() {
+        return {
+            name: this.name,
+            createD: this.created,
+            songs: this.getEncodedSongList()
+        };
+    }
 };
 
 module.exports = Playlist;

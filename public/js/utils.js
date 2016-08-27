@@ -12,10 +12,11 @@ define('MuseDJ/Utils', ['jQuery'], function($) {
 					}
 
 					$.getJSON(url).done(function(data, err) {
-						callback(undefined, data.items[0].snippet.thumbnails.high.url, err);
+						if (data.items.length === 0) return callback(new Error('No Video Found'));
+						return callback(undefined, data.items[0].snippet.thumbnails.high.url, err);
 					}).fail(function(err) {
 						console.warn('Error Retrieving YouTube Data.');
-						callback(err, '/img/noimage240x180.png');
+						return callback(err, '/img/noimage240x180.png');
 					});
 				}
 			}

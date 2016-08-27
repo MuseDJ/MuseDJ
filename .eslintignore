@@ -1,4 +1,10 @@
-node_modules
-jsmediatags
-jquery
-requirejs
+node_modules/*
+views/*
+private/*
+
+public/jquery/*
+public/requirejs/*
+public/material-design-icons/*
+public/music/*
+public/css/*
+public/img/*

@@ -1,12 +1,35 @@
 const path = require('path');
-const {expect} = require('chai');
+const {
+    expect
+} = require('chai');
 const Song = require(path.join(__dirname.toString().replace('\\test\\', '\\'), 'song'));
 
-describe('Songs', function () {
-	describe('Class', function () {
-		it('Has a constructor', function () {
-			// TODO Better testing of acutal constructor
-			expect(Song).to.be.a('function');
-		});
-	});
+let defaultSong = process.env.TEST_SONG;
+
+console.log('DEFAULT SONG', process.env.TEST_SONG);
+
+describe('Songs', function() {
+    it('Has a constructor', function(done) {
+        new Song(path.join(__dirname, '../../../public/music/' + decodeURI(defaultSong))).then(() => {
+            done();
+        }).catch((err) => {
+            done(err);
+        });
+        expect(Song).to.be.a('function', 'Not a function.');
+    });
+    it('Should return an object', function(done) {
+        new Song(path.join(__dirname, '../../../public/music/' + decodeURI(defaultSong))).then((song) => {
+            expect(song).to.be.an('object');
+            done();
+        }).catch((err) => {
+            done(err);
+        });
+    });
+    it('Should throw an error for unknown song', function(done) {
+        new Song('').then(() => {
+            done('Didn\'t throw an error for unknown song.');
+        }).catch(() => {
+            done();
+        });
+    });
 });

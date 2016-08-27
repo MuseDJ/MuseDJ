@@ -4,7 +4,7 @@
   "description": "A simple web based music player",
   "main": "src/app.js",
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install",
+    "postinstall": "./node_modules/.bin/bower install",
     "test": "npm run eslint && npm run nsp && npm run mocha",
     "eslint": "./node_modules/.bin/eslint .",
     "nsp": "./node_modules/.bin/nsp check",

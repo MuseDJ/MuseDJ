@@ -27,7 +27,7 @@ describe('Songs', function() {
     });
     it('Should throw an error for unknown song', function(done) {
         new Song('').then(() => {
-            done('Didn\'t throw an error for unknown song.');
+            done(new Error('Didn\'t throw an error for unknown song.'));
         }).catch(() => {
             done();
         });

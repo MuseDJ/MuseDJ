@@ -1,7 +1,5 @@
 const path = require('path');
-const {
-    expect
-} = require('chai');
+const {expect} = require('chai');
 const Song = require(path.join(__dirname.toString().replace('\\test\\', '\\'), 'song'));
 
 let defaultSong = process.env.TEST_SONG;

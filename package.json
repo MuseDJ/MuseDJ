@@ -30,6 +30,7 @@
     "get-artist-title": "^0.3.0",
     "morgan": "^1.7.0",
     "musicmetadata": "^2.0.4",
+    "node-sass-middleware": "^0.9.8",
     "promise": "^7.1.1"
   },
   "devDependencies": {

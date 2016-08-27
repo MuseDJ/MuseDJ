@@ -6,6 +6,9 @@
     },
     "extends": "eslint:recommended",
     "rules": {
+        "comment-annotation": [
+            "warn"
+        ],
         "no-console": [
             "off"
         ],

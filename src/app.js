@@ -46,6 +46,7 @@ http.createServer(app).listen(80);
 console.log('Server now listening');
 
 process.on('uncaughtException', function(err) {
+	console.error('Uncaught Exception.');
     console.error(err.message); // eslint-disable-no-console
     console.error(err.stack); // eslint-disable-no-console
     process.exit(err);

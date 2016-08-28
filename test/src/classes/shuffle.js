@@ -1,6 +1,6 @@
 const path = require('path');
 const {expect} = require('chai');
-const Shuffle = require(path.join(__dirname.toString().replace('\\test\\', '\\'), 'shuffle'));
+const Shuffle = require(path.join(__dirname.toString().replace('\\test\\', '\\').replace('/test/','/'), 'shuffle'));
 
 describe('Shuffle', function () {
 	describe('Seeder', function () {

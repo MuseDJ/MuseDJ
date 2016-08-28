@@ -1,7 +1,8 @@
 const path = require('path');
 const {expect} = require('chai');
+const fs = require('fs');
 console.log(path.join(__dirname.toString().replace('\\test\\', '\\'), 'song'));
-console.log("Directory", fs.readdirSync(path.join(__dirname.toString().replace('\\test\\', '\\'), 'song')));
+console.log('Directory', fs.readdirSync(path.join(__dirname.toString().replace('\\test\\', '\\'), 'song')));
 const Song = require(path.join(__dirname.toString().replace('\\test\\', '\\'), 'song'));
 
 let defaultSong = process.env.TEST_SONG;

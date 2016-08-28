@@ -6,7 +6,7 @@
     },
     "extends": "eslint:recommended",
     "rules": {
-        "comment-annotation": [
+        "no-warning-comments": [
             "warn"
         ],
         "no-console": [

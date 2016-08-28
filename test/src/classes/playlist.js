@@ -1,8 +1,8 @@
 const path = require('path');
 const {expect} = require('chai');
-const Playlist = require(path.join(__dirname.toString().replace('\\test\\', '\\'), 'playlist'));
-const Song = require(path.join(__dirname.toString().replace('\\test\\', '\\'), 'song'));
-// const Shuffle = require(path.join(__dirname.toString().replace('\\test\\', '\\'), 'shuffle'));
+const Playlist = require(path.join(__dirname.toString().replace('\\test\\', '\\').replace('/test/','/'), 'playlist'));
+const Song = require(path.join(__dirname.toString().replace('\\test\\', '\\').replace('/test/','/'), 'song'));
+// const Shuffle = require(path.join(__dirname.toString().replace('\\test\\', '\\').replace('/test/','/'), 'shuffle'));
 
 let defaultSong = process.env.TEST_SONG;
 
